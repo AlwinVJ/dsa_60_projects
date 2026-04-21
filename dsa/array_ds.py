@@ -3,7 +3,13 @@ class StudentArray:
         self.data = []
     
     def add_student(self,name,roll):
-        self.data.append({"name":name,"roll":roll})
+        # prevent duplicate roll
+        for student in self.data:
+            if student["roll"] == roll:
+                return False
+
+        self.data.append({"name": name, "roll": roll})
+        return True
         
     def get_all(self):
         return self.data
@@ -22,3 +28,4 @@ class StudentArray:
                 return True
         
         return False
+    
